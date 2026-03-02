@@ -1,4 +1,4 @@
-# Vision-Guided Tactile Gripper
+# Vision-based Tactile sensor Gripper
 
 **Graduation Project 2026 – Hanoi University of Science and Technology**  
 **Nguyễn Thượng Thanh Tùng** (tthanhtung1140003)  
@@ -34,4 +34,5 @@ cd vision-guided-tactile-gripper
 cd pi_vision && pip install -r requirements.txt && python main.py
 
 # Laptop side
+
 cd laptop_gui && pip install -r requirements.txt && python gui.py
