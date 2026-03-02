@@ -11,8 +11,8 @@
 #define DIR_OPEN  HIGH
 
 // --- CẤU HÌNH TỐC ĐỘ & GIỚI HẠN ---
-#define DEFAULT_SPEED 2000.0  // Tốc độ mặc định (bước/giây)
-#define MAX_SPEED_HARD 6000.0 // Giới hạn cứng của phần cứng
+#define DEFAULT_SPEED 2000.0  
+#define MAX_SPEED_HARD 6000.0 
 
 #define ANGLE_MIN -3.0   
 #define ANGLE_MAX 725.0  
@@ -54,9 +54,8 @@ unsigned long lastStepTime = 0;
 unsigned long stepInterval = 0;
 unsigned long lastPrint = 0;
 
-// ==========================================
-//  FLASH HELPERS
-// ==========================================
+//  FLASH 
+
 void saveToFlash(float angle) {
   EEPROM.put(EEPROM_DATA_ADDR, angle);
 }
@@ -78,9 +77,8 @@ void initFlashIfNeeded() {
   }
 }
 
-// ==========================================
 //  SETUP
-// ==========================================
+
 void setup() {
   Serial.begin(115200);
 
@@ -142,9 +140,8 @@ void setup() {
   Serial.println(">");
 }
 
-// ==========================================
 //  LOOP
-// ==========================================
+
 void loop() {
   recvWithStartEndMarkers();
   if (newData) {
@@ -198,9 +195,7 @@ void loop() {
   }
 }
 
-// ==========================================
 //  HELPERS & PARSER (CẬP NHẬT)
-// ==========================================
 
 void parseData() {
   char * strtokIndx;
