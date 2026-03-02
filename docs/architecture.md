@@ -1,6 +1,4 @@
-#### B. `docs/architecture.md`
 
-```markdown
 # System Architecture
 
 ## Connections
