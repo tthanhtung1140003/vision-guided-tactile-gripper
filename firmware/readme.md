@@ -16,21 +16,40 @@ Both are responsible for real-time motion control, communication, and safety fea
 
 ## Folder Structure
 
-### gantry/
-STM32CubeIDE project for the gantry controller.
+```text
 gantry/
 ├── App/                      # Application layer (custom logic)
 │   ├── comm/                 # Serial communication protocol
+│   │   ├── comm.c
+│   │   └── comm.h
 │   ├── driver/               # Hardware drivers
+│   │   ├── driver.c
+│   │   └── driver.h
 │   ├── error/                # Error management
+│   │   ├── error.c
+│   │   └── error.h
 │   ├── homing/               # Homing sequence
+│   │   ├── homing.c
+│   │   └── homing.h
 │   ├── jog/                  # Jogging mode
+│   │   ├── jog.c
+│   │   └── jog.h
 │   ├── limit/                # Limit switch handling
+│   │   ├── limit.c
+│   │   └── limit.h
 │   ├── motion/               # Motion control core
+│   │   ├── motion.c
+│   │   └── motion.h
 │   ├── protocol/             # Command parser
+│   │   ├── protocol.c
+│   │   └── protocol.h
 │   ├── system/               # System init & tick
-│   ├── serial_rx.c/h         # Serial receive handler
-│   └── tick_1ms.c/h          # 1ms system tick
+│   │   ├── system.c
+│   │   └── system.h
+│   ├── serial_rx.c
+│   ├── serial_rx.h
+│   ├── tick_1ms.c
+│   └── tick_1ms.h
 ├── Core/                     # STM32Cube generated code
 │   ├── Inc/                  # HAL headers
 │   ├── Src/                  # HAL implementation
@@ -39,10 +58,11 @@ gantry/
 ├── Gantry Controller v10.ioc # CubeMX project file
 ├── STM32F103C8TX_FLASH.ld    # Linker script
 └── Test.launch               # Debug configuration (optional)
-text### gripper/
-Simple Arduino-style firmware (likely ported to STM32 via Arduino STM32 core).
 gripper/
-└── gripper.ino               # Main sketch: USB Serial, motor control, PID, encoder
+Simple Arduino-style firmware (likely ported to STM32 via Arduino STM32 core).
+textgripper/
+└── gripper.ino
+
 text## Communication Protocols
 
 - **Gantry** → Receives G-code-like commands via USB Serial from Laptop GUI.  
