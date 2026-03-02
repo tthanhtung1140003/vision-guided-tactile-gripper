@@ -23,7 +23,7 @@ Uses Raspberry Pi 5 for vision + MLP, STM32 for low-level control, and a custom 
 - **STM32 Gripper**: USB CDC from Pi (PID + encoder)  
 - **Laptop GUI**: TCP from Pi + Serial to STM32 Gantry  
 
-Chi tiết → [docs/architecture.md](docs/architecture.md)
+detail → [docs/architecture.md](docs/architecture.md)
 
 ## Quick Start
 ```bash
