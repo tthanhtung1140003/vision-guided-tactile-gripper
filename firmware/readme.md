@@ -1,18 +1,19 @@
+```markdown
 # Firmware
 
 This folder contains the low-level firmware for the two STM32-based controllers in the vision-guided tactile gripper system:
 
 - **gantry/**: Firmware for the 3-axis gantry CNC controller (STM32F103C8Tx).
-- **gripper/**: Firmware for the parallel gripper controller.
+- **gripper/**: Firmware for the parallel gripper controller (STM32 Blackpill).
 
 Both are responsible for real-time motion control, communication, and safety features.
 
 ## Overview
 
-| Controller | MCU          | Communication       | Main Functions                              | Project Type       |
-|------------|--------------|---------------------|---------------------------------------------|--------------------|
-| Gantry     | STM32F103C8Tx | USB Serial (from Laptop GUI) | Homing, jogging, motion planning, limits, error handling | STM32CubeIDE (.ioc) |
-| Gripper    | (STM32 blackpill) | USB Serial  (from Raspberry Pi) | Grip/release, PID position/force, encoder reading | Arduino (.ino)     |
+| Controller | MCU              | Communication                  | Main Functions                                      | Project Type          |
+|------------|------------------|--------------------------------|-----------------------------------------------------|-----------------------|
+| Gantry     | STM32F103C8Tx    | USB Serial (from Laptop GUI)   | Homing, jogging, motion planning, limits, error handling | STM32CubeIDE (.ioc)   |
+| Gripper    | STM32 Blackpill  | USB Serial (from Raspberry Pi) | Grip/release, PID position/force, encoder reading   | Arduino (.ino)        |
 
 ## Folder Structure
 
@@ -58,8 +59,10 @@ gantry/
 ├── Gantry Controller v10.ioc # CubeMX project file
 ├── STM32F103C8TX_FLASH.ld    # Linker script
 └── Test.launch               # Debug configuration (optional)
+
 gripper/
-└── gripper.ino
+└── gripper.ino               # Main sketch: USB Serial, motor control, PID, encoder
+```
 
 ## Communication Protocols
 
@@ -79,7 +82,7 @@ gripper/
 
 ### For gripper/ (.ino)
 1. Open `gripper.ino` in Arduino IDE (with STM32 core installed).
-2. Select board (Generic STM32F1/F4 series).
+2. Select board (Generic STM32F1 series or Blackpill variant).
 3. Select USB port → Upload.
 
 **Note**: If using PlatformIO instead, create `platformio.ini` in each subfolder.
@@ -91,9 +94,9 @@ gripper/
 - Arduino STM32 core (for gripper.ino)
 
 ## Notes
-- Gantry uses 1ms tick for precise timing (tick_1ms.c).
-- All safety features (limits, error recovery, homing) are implemented in App/ layer.
-- Firmware is tightly coupled with hardware (pinout in gpio.h / main.h).
+- Gantry uses 1ms tick for precise timing (`tick_1ms.c`).
+- All safety features (limits, error recovery, homing) are implemented in `App/` layer.
+- Firmware is tightly coupled with hardware (pinout in `gpio.h` / `main.h`).
 
 For detailed command format, error codes, and baudrate → refer to `protocols/` folder.
 
