@@ -59,11 +59,9 @@ gantry/
 ├── STM32F103C8TX_FLASH.ld    # Linker script
 └── Test.launch               # Debug configuration (optional)
 gripper/
-Simple Arduino-style firmware (likely ported to STM32 via Arduino STM32 core).
-textgripper/
 └── gripper.ino
 
-text## Communication Protocols
+## Communication Protocols
 
 - **Gantry** → Receives G-code-like commands via USB Serial from Laptop GUI.  
   See: [protocols/serial_gantry_protocol.md](../protocols/serial_gantry_protocol.md)
