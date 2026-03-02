@@ -1,4 +1,3 @@
-```markdown
 # Firmware
 
 This folder contains the low-level firmware for the two STM32-based controllers in the vision-guided tactile gripper system:
